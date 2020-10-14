@@ -4,18 +4,18 @@ import java.util.regex.PatternSyntaxException;
 
 public class Syntax_Checker {
 	public static void main(String[] args){
-        Scanner in = new Scanner(System.in);
-        int testCases = Integer.parseInt(in.nextLine());
-        while(testCases > 0){
-            String pattern = in.nextLine();
-            try {
-                Pattern.compile(pattern);
-                System.out.println("Valid");
-            } catch (PatternSyntaxException e) {
-                System.out.println("Invalid");
-            }
-            testCases--;
+        Scanner scan = new Scanner(System.in);
+        int testCases = scan.nextInt();
+        scan.nextLine(); // gets rid of the pesky newline.
+        while (testCases-- > 0){
+           String pattern = scan.nextLine();
+           try {
+               Pattern.compile(pattern);
+               System.out.println("Valid");
+           } catch (PatternSyntaxException exception) {
+               System.out.println("Invalid");
+           }
         }
-        in.close();
+        scan.close();
     }
 }
